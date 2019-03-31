@@ -1,16 +1,10 @@
-
-public class BSTNode<T> implements Comparable<BSTNode> {
-  private Comparable<T> data;
+public class BSTNode<T extends Comparable<T>> {
+  private T data;
   private BSTNode<T> left;
   private BSTNode<T> right;
 
-  @Override
-  public int compareTo(Comparable<T> o) {
-    return data.compareTo(o);
-  }
-
-  public BSTNode(Comparable<T> data) {
-    this.data = data;
+  public BSTNode(T newData) {
+    data = newData;
     left = null;
     right = null;
   }
@@ -23,7 +17,7 @@ public class BSTNode<T> implements Comparable<BSTNode> {
     return right;
   }
 
-  public Comparable<T> getData() {
+  public T getData() {
     return data;
   }
 
@@ -33,5 +27,9 @@ public class BSTNode<T> implements Comparable<BSTNode> {
 
   public void setRightNode(BSTNode<T> newNode) {
     right = newNode;
+  }
+  
+  public void setData(T newData) {
+    data = newData;
   }
 }
